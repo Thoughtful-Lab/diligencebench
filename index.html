@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DiligenceBench leaderboard for model-in-harness equity research agents." />
+    <title>DiligenceBench — Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home-page">
+    <header class="site-header">
+      <a class="brand" href="#"><span>Thoughtful</span> × <span>Paper Instruments</span></a>
+      <nav aria-label="Primary navigation">
+        <a class="active" href="#leaderboard">Leaderboard</a>
+        <a href="#design">Design</a>
+        <a href="#methodology">Harnesses</a>
+        <a href="price-performance.html">Price vs performance</a>
+        <a href="reports.html">Reports</a>
+      </nav>
+      <a class="github-link" href="https://github.com/paper-instruments/diligence-bench">GitHub <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" id="leaderboard">
+        <div class="eyebrow"><span class="status-dot"></span> Live benchmark · August 2026</div>
+        <h1>DiligenceBench</h1>
+        <p class="lede">An equity-research agent evaluation measuring factual accuracy, analytical reasoning, and risk awareness across 150 tasks.</p>
+        <div class="byline">
+          <p>July 17, 2026</p>
+          <p><b>Malthe Have Musaeus</b><sup>1</sup> · <b>Faisal Sayed</b><sup>2</sup> · <b>Mersad Abbasi</b><sup>2</sup> · <b>Daanish Khazi</b><sup>1</sup> · <b>Karina Nguyen</b><sup>2</sup></p>
+          <p><sup>1</sup> Paper Instruments&nbsp;&nbsp; <sup>2</sup> Thoughtful Lab</p>
+        </div>
+        <div class="stats" aria-label="Benchmark summary">
+          <div><strong>150</strong><span>tasks</span></div>
+          <div><strong>143</strong><span>companies</span></div>
+          <div><strong>5,428</strong><span>rubric criteria</span></div>
+          <div><strong>10</strong><span>sectors</span></div>
+        </div>
+      </section>
+
+      <section class="article-intro" id="design">
+        <div><span class="section-index">00</span><p class="kicker">Benchmark design</p></div>
+        <div class="article-copy">
+          <p class="drop">DiligenceBench is a joint release from Paper Instruments and Thoughtful Lab: 150 open-ended equity-research tasks spanning energy, banking, biotech, insurance, technology, REITs, restaurants, industrials, and utilities.</p>
+          <p>Tasks ask agents to assess cash-flow quality, capital adequacy, off-balance-sheet exposure, reserve sufficiency, profitability inflections, accounting asymmetries, liquidity stress, segment divergence, and concentration risk. Each task requires external research rather than recall.</p>
+          <p>The benchmark has no fixed harness. It evaluates agents end-to-end—model configuration, retrieval, execution, tools, skills, and instructions. A strong response must find the correct filing, extract the relevant disclosure, calculate against it, distinguish evidence from inference, and return to the investment question.</p>
+        </div>
+      </section>
+
+      <section class="board" aria-labelledby="board-title">
+        <div class="board-heading">
+          <div>
+            <span class="section-index">01</span>
+            <h2 id="board-title">Leaderboard</h2>
+          </div>
+          <p>Rubric score · higher is better</p>
+        </div>
+
+        <div class="harness-tabs" role="tablist" aria-label="Harness">
+          <button class="tab active" data-harness="h3" role="tab" aria-selected="true"><b>H3</b> Finance <span>18 models</span></button>
+          <button class="tab" data-harness="h2" role="tab" aria-selected="false"><b>H2</b> Sandbox <span>16 models</span></button>
+          <button class="tab" data-harness="h1" role="tab" aria-selected="false"><b>H1</b> Loop <span>16 models</span></button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th class="rank">#</th><th>Model</th><th>Provider</th><th>Harness</th><th class="score">Rubric score ↓</th><th>Coverage</th></tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+        <p class="table-note" id="table-note">H3 Finance results. Every score is evaluated over all 150 tasks using GPT-5.5 as rubric judge.</p>
+      </section>
+
+      <section class="insight-grid" id="methodology">
+        <a class="insight-card featured" href="reports.html#grok-opus" aria-label="Read the Grok 4.6 versus Claude Opus 5 report">
+          <span class="section-index">02</span>
+          <p class="kicker">New result</p>
+          <h2>Grok 4.6 enters at <em>#2</em></h2>
+          <p>Grok 4.6 scores 53.2 in the Finance harness, 1.1 points above Claude Opus 5. The paired 95% confidence interval is −1.0 to +3.2 points, so the two should be read as statistically tied—not as a decisive model win.</p>
+          <div class="comparison">
+            <div><span>Grok 4.6</span><strong>53.2</strong></div>
+            <div><span>Claude Opus 5</span><strong>52.1</strong></div>
+          </div>
+        </a>
+        <article class="insight-card">
+          <span class="section-index">03</span>
+          <p class="kicker">How to read it</p>
+          <h2>Model and harness are one system</h2>
+          <p>DiligenceBench evaluates the complete research agent. Retrieval, execution, finance tools, skills, instructions, and the underlying model all contribute to the score.</p>
+        </article>
+        <article class="insight-card">
+          <span class="section-index">04</span>
+          <p class="kicker">Evaluation</p>
+          <h2>Dense, task-specific rubrics</h2>
+          <p>Each submission is graded against roughly 30–40 binary criteria spanning factual accuracy, reasoning, and risk. Negative criteria penalize active errors.</p>
+        </article>
+      </section>
+
+      <section class="harness-section">
+        <div class="section-title"><span class="section-index">05</span><div><p class="kicker">Reference harnesses</p><h2>A controlled ladder</h2></div></div>
+        <p class="section-deck">The task, model interface, grader, and memo format remain fixed. Each rung adds domain support and tooling, isolating open-web retrieval, general execution, and finance-specific research infrastructure.</p>
+        <div class="harness-cards">
+          <article><div class="harness-number">H1</div><h3>Loop</h3><p class="flow">Prompt → Web → Answer</p><dl><dt>Layer added</dt><dd>Web search and page fetch</dd><dt>Working state</dt><dd>Conversation context only</dd></dl><p>The model searches the open web and reads fragments into context. It cannot write files, run code, or build a persistent corpus.</p></article>
+          <article><div class="harness-number">H2</div><h3>Sandbox</h3><p class="flow">Prompt → Web → Workspace → answer.md</p><dl><dt>Layer added</dt><dd>Shell, Python, and writable files</dd><dt>Working state</dt><dd>Persistent sandbox</dd></dl><p>The model can download and parse filings, calculate locally, and revise a durable artifact. Discovery still relies on generic web retrieval.</p></article>
+          <article><div class="harness-number">H3</div><h3>Finance</h3><p class="flow">Issuer → Filing → Evidence → answer.md</p><dl><dt>Layer added</dt><dd>SEC tools and finance skills</dd><dt>Working state</dt><dd>Persistent sandbox</dd></dl><p>The model resolves the issuer, selects the filing, and searches inside the authoritative source with instructions for source hierarchy and risk framing.</p></article>
+        </div>
+      </section>
+
+      <section class="method-note">
+        <div><span class="section-index">06</span><h2>About these results</h2></div>
+        <div class="prose">
+          <p>The original 16 models were evaluated across all three reference harnesses. The newly added Grok 4.6 and Claude Opus 5 runs are complete H3 Finance evaluations (150/150 tasks, zero run errors); H1 and H2 values are intentionally left unavailable.</p>
+          <p>Grok 4.6 and all other entries use the published DiligenceBench tasks and GPT-5.5 judge. Scores are means of normalized weighted rubric rewards.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="reports">
+        <header class="report-head"><div><span class="section-index">07</span><p class="kicker">Research note · 4 min read</p></div><h2>Why Grok edged ahead</h2><p class="report-standfirst">The score difference is small. The behavioral difference is not.</p></header>
+        <div class="report-body">
+          <aside><p>Grok 4.6 vs Claude Opus 5</p><strong>+1.1</strong><span>rubric points</span><small>95% CI: −1.0 to +3.2</small></aside>
+          <article>
+            <p>Grok was much more search-intensive: about <strong>41 tool calls per task</strong> versus Opus’s 22. It made 3,293 SEC filing-search calls against 486 for Opus and uniquely satisfied 529 rubric criteria, compared with 470 uniquely satisfied by Opus.</p>
+            <h3>Section scores</h3>
+            <div class="mini-table" role="table" aria-label="Grok and Opus rubric section scores">
+              <div class="mini-row mini-head"><span>Section</span><span>Grok 4.6</span><span>Opus 5</span></div>
+              <div class="mini-row"><span>Factual accuracy</span><strong>55.0</strong><span>54.2</span></div>
+              <div class="mini-row"><span>Analytical reasoning</span><strong>53.2</strong><span>51.3</span></div>
+              <div class="mini-row"><span>Risk awareness</span><strong>50.8</strong><span>49.3</span></div>
+            </div>
+            <h3>Behavioral differences</h3>
+            <div class="behavior-grid"><div><b>Grok 4.6</b><p>Broader SEC search, more evidence gathering, more tool failures, and shorter final answers. Source failures appeared on 24 tasks.</p></div><div><b>Claude Opus 5</b><p>More shell-based document processing, longer answers, and fewer failed fetches. Source failures appeared on only four tasks.</p></div></div>
+            <p>Opus wrote longer answers—13,445 versus 10,966 characters—and used more turns, but it more often omitted the rubric’s exact requested formulation. Its cleaner execution did not consistently become the precise assertions rewarded by the judge.</p>
+            <blockquote><b>Conclusion.</b> Treat Grok 4.6 and Opus 5 as a statistical tie around 52–53%. Grok’s nominal advantage appears driven by aggressive search and slightly better rubric targeting; Opus was more efficient and sometimes more nuanced. Sonnet 5’s 46.2% is meaningfully below Grok, with a paired difference of +7.0 points and a confidence interval of roughly +4.5 to +9.4.</blockquote>
+          </article>
+        </div>
+      </section>
+
+      <section class="plot-section">
+        <div class="plot-head"><div><span class="section-index">08</span><p class="kicker">Economics</p><h2>Price versus performance</h2></div><p>Estimated mean inference cost per task at published serving rates. Each path follows one open-weight model from H1 to H3.</p></div>
+        <div class="plot-key"><span class="glm52">GLM 5.2</span><span class="glm51">GLM 5.1</span><span class="minimax">MiniMax M3</span><span class="kimi">Kimi K2.6</span><span class="inkling">Inkling</span></div>
+        <div class="scatter-wrap"><svg id="cost-plot" role="img" aria-label="Cost per task versus rubric score by model and harness"></svg></div>
+        <p class="plot-note">Token counts are reconstructed from complete traces with published tokenizers; cache reuse is inferred from the conversation prefix shared across turns. Hover points for exact values.</p>
+      </section>
+
+      <section class="trace-section">
+        <div class="trace-head"><span class="section-index">09</span><div><p class="kicker">Trace example</p></div></div>
+        <p class="trace-question">Does Bank of America’s growth in commercial committed exposure overstate or understate the portfolio’s underlying credit risk?</p>
+        <div class="trace-list">
+          <article><div class="trace-step">01</div><header><span>H1 · Loop</span><b>189 tool calls</b><strong>0.9</strong></header><p class="trace-mode">Repeats open-web search</p><div class="trace-bar"><i style="width:86%"></i><i style="width:13%"></i><i style="width:1%"></i></div><p><code>web_search</code> × 162<br><code>web_fetch</code> × 26<br><code>final_answer</code> × 1</p></article>
+          <article><div class="trace-step">02</div><header><span>H2 · Sandbox</span><b>50 tool calls</b><strong>32.8</strong></header><p class="trace-mode">Builds a persistent local corpus</p><div class="trace-bar h2"><i style="width:70%"></i><i style="width:18%"></i><i style="width:12%"></i></div><p><code>exec_command</code> × 35<br><code>web_search</code> × 9<br><code>apply_patch</code> × 6</p></article>
+          <article class="trace-best"><div class="trace-step">03</div><header><span>H3 · Finance</span><b>44 tool calls</b><strong>65.7</strong></header><p class="trace-mode">Resolves the issuer, then stays in the filing</p><div class="trace-bar h3"><i style="width:5%"></i><i style="width:77%"></i><i style="width:18%"></i></div><p><code>issuer + filings</code> × 2<br><code>sec_filing_search</code> × 34<br><code>other</code> × 8</p></article>
+        </div>
+        <p class="trace-caption">H1 repeats open-web search. H2 builds a local corpus. H3 resolves the issuer and filing, then stays inside the primary source.</p>
+      </section>
+
+      <section class="release-section">
+        <div><span class="section-index">10</span><p class="kicker">Release</p><h2>Research, openly.</h2></div>
+        <div class="prose"><p>The dataset and repository are released under the Apache 2.0 license. The public task set covers 143 large-accelerated US companies and includes 5,428 criteria, with 672 negatively weighted criteria for active errors.</p><p>All published results use GPT-5.5 as the LLM judge. Each complete response is graded once against every weighted positive and negative criterion; the final reward is the normalized weighted sum.</p></div>
+      </section>
+
+      <section class="citation-section">
+        <div class="citation-title"><span class="section-index">11</span><div><p class="kicker">Reference</p><h2>Citations</h2></div></div>
+        <div class="citation-content"><label>Citation</label><pre><code>Musaeus, Malthe Have; Sayed, Faisal; Abbasi, Mersad; Khazi, Daanish; and Nguyen, Karina, “DiligenceBench: An Equity-Research Agent Evaluation”, Paper Instruments Blog, Jul 2026.</code></pre><label>BibTeX</label><pre><code>@misc{musaeusetal2026diligencebench,
+  author = {Malthe Have Musaeus and Faisal Sayed and Mersad Abbasi and Daanish Khazi and Karina Nguyen},
+  title = {DiligenceBench: An Equity-Research Agent Evaluation},
+  howpublished = {Paper Instruments Blog},
+  year = {2026},
+  url = {https://www.paperinstruments.com/blog/diligence-bench}
+}</code></pre></div>
+      </section>
+
+      <section class="cta">
+        <p class="kicker">Open benchmark</p>
+        <h2>Run DiligenceBench<br />on your agent.</h2>
+        <div><a class="button primary" href="https://github.com/paper-instruments/diligence-bench">View repository ↗</a><a class="button" href="https://huggingface.co/datasets/paperinstruments/diligence-bench">Get the dataset ↗</a></div>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#"><span>Thoughtful</span> × <span>Paper Instruments</span></a><p>DiligenceBench · Apache 2.0 · <a class="quiet-link" href="https://www.paperinstruments.com/blog/diligence-bench">Original blogpost ↗</a></p><p>© 2026</p></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
