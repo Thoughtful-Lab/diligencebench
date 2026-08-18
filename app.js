@@ -2,6 +2,7 @@ const models = [
   { model: "Muse Spark 1.1", provider: "Muse", h1: 40.5, h2: 54.5, h3: 57.4 },
   { model: "Grok 4.6", provider: "xAI", h3: 53.2, isNew: true },
   { model: "Claude Opus 5", provider: "Anthropic", h3: 52.1, isNew: true },
+  { model: "Claude Sonnet 5", provider: "Anthropic", h3: 46.2, isNew: true },
   { model: "GLM 5.2", provider: "Zhipu AI", h1: 36.1, h2: 48.0, h3: 51.0 },
   { model: "Claude Sonnet 4.6", provider: "Anthropic", h1: 41.8, h2: 48.2, h3: 51.0 },
   { model: "GPT-5.6 Sol", provider: "OpenAI", h1: 44.1, h2: 49.6, h3: 50.0 },
@@ -26,8 +27,8 @@ if (document.body.classList.contains("home-page")) {
 
 const labels = { h1: "H1 · Loop", h2: "H2 · Sandbox", h3: "H3 · Finance" };
 const notes = {
-  h1: "H1 Loop results over 150 tasks. New Grok 4.6 and Claude Opus 5 runs are not available for this harness.",
-  h2: "H2 Sandbox results over 150 tasks. New Grok 4.6 and Claude Opus 5 runs are not available for this harness.",
+  h1: "H1 Loop results over 150 tasks. New Grok 4.6, Claude Opus 5, and Claude Sonnet 5 runs are not available for this harness.",
+  h2: "H2 Sandbox results over 150 tasks. New Grok 4.6, Claude Opus 5, and Claude Sonnet 5 runs are not available for this harness.",
   h3: "H3 Finance results. Every score is evaluated over all 150 tasks using GPT-5.5 as rubric judge."
 };
 
